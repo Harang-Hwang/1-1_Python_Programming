@@ -1,0 +1,93 @@
+import random
+import time
+
+tm = int(input('당신의 총 예산은 얼마입니까? '))
+
+win = 1
+loose = 1
+
+while True:
+    time.sleep(1)
+    a = int(input('up : 1, down : 2 / 선택 : '))
+    
+    while True :
+        time.sleep(1)
+        b = int(input('베팅 금액을 입력하세요. '))
+        
+        if tm >= b:
+            break
+        else : 
+            time.sleep(1)
+            print('예산의 범위를 초과했습니다. 베팅 금액을 다시 입력해주세요.')
+            
+    x = random.randrange(1,7)
+    y = random.randrange(1,7)
+    z = random.randrange(1,7)
+    w = x+y+z
+    
+    '''
+    time.sleep(1)
+    print('첫번째 주사위를 굴립니다...')
+    time.sleep(2)
+    print('두번째 주사위를 굴립니다...')
+    time.sleep(2)
+    print('세번째 주사위를 굴립니다...')
+    time.sleep(2)
+    print('두구두구두구두구두구두구두구두구두구두구두구두구두구')
+    time.sleep(2)
+    '''
+    if w>10 :
+        dice_select = 1
+    else:
+        dice_select = 2
+        
+    if a==dice_select :
+        tm = tm + b*2
+        win =+ 1
+        time.sleep(1)
+        print('주사위의 합계는',w,'입니다. 승리하셨습니다.')
+        time.sleep(1)
+        print(b*2,'원을 획득하셨습니다. 잔액은',tm,'원 입니다.')
+    else :
+        tm = tm - b
+        loose =+ 1
+        time.sleep(1)
+        print('주사위의 합계는',w,'입니다. 패배하셨습니다.')
+        time.sleep(1)
+        print(b,'원을 빼앗기셨습니다. 잔액은',tm,'원 입니다.')
+    
+    time.sleep(1)
+    print('게임을 계속하시겠습니까?')
+    
+    time.sleep(1)
+    q = int(input('계속 하시려면 1, 게임을 끝내려면 0을 입력하세요. '))
+    
+    if q==0:
+        print('------------------------------------------------------------------')
+        time.sleep(2)
+        print('당신의 성적을 알려드리겠습니다.')
+        time.sleep(2)
+        print('승리 : ',win,'회')
+        time.sleep(2)
+        print('패배 : ',loose,'회')
+        time.sleep(2)
+        print('최종 금액 : ',tm)
+        time.sleep(2)
+        print('승률 : ',(win/(win+loose))*100,'%')
+        break
+        
+    if tm == 0:
+        print('잔액이 없습니다. 보안 요원의 안내에 따라 퇴장하세요. 보안요원! 이분 강제 퇴장 시키세요!')
+        time.sleep(2)
+        print('------------------------------------------------------------------')
+        time.sleep(2)
+        print('당신의 성적을 알려드리겠습니다.')
+        time.sleep(2)
+        print('승리 : ',win,'회')
+        time.sleep(2)
+        print('패배 : ',loose,'회')
+        time.sleep(2)
+        print('최종 금액 : ',tm)
+        time.sleep(2)
+        print('승률 : ',(win%(win+loose))*100,'%')
+        break
