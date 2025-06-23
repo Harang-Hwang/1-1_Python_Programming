@@ -1,5 +1,5 @@
-for x in range(0,4):
-    for y in range(0,4):
-        if y == 2:
-            continue
-        print(x,y)
+a = int(input('초를 입력하세요 : '))
+b = a//3600
+c = (a%3600) // 60
+d = (a%3600) % 60
+print(f'입력받은 {a}초는 {b}시간 {c}분 {d}초 이다.')

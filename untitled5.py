@@ -1,16 +1,13 @@
-userList = []
-def again():
-    print("중복됩니다. 다시 입력해주세요")
-    
-while True :    
-    userID = input("아이디 입력 : ")  
-    if userID == "0" :
-        break    
-    if userID in userList :
-        again()
-        
-        continue
-    userList.append(userID)
-    
-print(userList)
-
+a = int(input('용도 : 1:주택용, 2:공업용, 3:산업용? '))
+b = int(input('사용량(kwh)? '))
+if a == 1:
+    x = 910 + b*88
+    print(f'용도 : 1, 사용량 : {b:0,.2f}, 전기요금 : {x:0,.2f}원')
+if a == 2:
+    y = 1600 + b*182
+    print(f'용도 : 2, 사용량 : {b:0,.2f}, 전기요금 : {y:0,.2f}원') 
+if a == 3:
+    z = 7300 + b*275
+    print(f'용도 : 3, 사용량 : {b:0,.2f}, 전기요금 : {z:0,.2f}원')
+else:
+    pass
